@@ -76,7 +76,7 @@ if(require.main == module) {
 	     		htmlFile = "url.html";
     	}
 	
-    var checkJson = checkHtmlFile(program.file, program.checks);
+    var checkJson = checkHtmlFile(htmlFile, program.checks);
     var outJson = JSON.stringify(checkJson, null, 4);
     console.log(outJson);
 } else {
