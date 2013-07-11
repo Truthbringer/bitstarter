@@ -68,16 +68,9 @@ if(require.main == module) {
 	.option('-u, --url <url>', 'URL path')
 	.parse(process.argv);
 	
-	 var htmlFile = program.file;
-    	if(program.url){
-	     		rest.get(program.url).on('complete', function(result){
-	       		fs.writeFileSync("url.html", result);
-	     		});
-	     		htmlFile = "url.html";
-    	}
-	
     var checkJson = checkHtmlFile(htmlFile, program.checks);
     var outJson = JSON.stringify(checkJson, null, 4);
+    fs.writeFileSync("output.json",outJson);
     console.log(outJson);
 } else {
     exports.checkHtmlFile = checkHtmlFile;
